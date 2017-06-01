@@ -38,7 +38,7 @@ CREATE TABLE `bans` (
 -- ----------------------------
 DROP TABLE IF EXISTS `coordinates`;
 CREATE TABLE `coordinates` (
-  `identifier` varchar(255) NOT NULL,
+  `identifier` varchar(60) NOT NULL,
   `x` double DEFAULT NULL,
   `y` double DEFAULT NULL,
   `z` double DEFAULT NULL,
@@ -56,7 +56,7 @@ CREATE TABLE `coordinates` (
 DROP TABLE IF EXISTS `items`;
 CREATE TABLE `items` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
-  `libelle` varchar(255) DEFAULT NULL,
+  `libelle` varchar(60) DEFAULT NULL,
   `value` int(11) NOT NULL DEFAULT '0',
   `type` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`)
@@ -156,8 +156,8 @@ CREATE TABLE `outfits` (
 DROP TABLE IF EXISTS `phonebook`;
 CREATE TABLE `phonebook` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `pidentifier` varchar(255) CHARACTER SET utf8mb4 DEFAULT '',
-  `phonenumber` varchar(255) DEFAULT '',
+  `pidentifier` varchar(60) CHARACTER SET utf8mb4 DEFAULT '',
+  `phonenumber` varchar(60) DEFAULT '',
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
 
@@ -194,7 +194,7 @@ INSERT INTO `police` VALUES ('8', 'Rien', '0');
 DROP TABLE IF EXISTS `users`;
 CREATE TABLE `users` (
   `ID` int(11) NOT NULL AUTO_INCREMENT,
-  `identifier` varchar(255) CHARACTER SET utf8mb4 NOT NULL DEFAULT '',
+  `identifier` varchar(60) CHARACTER SET utf8mb4 NOT NULL DEFAULT '',
   `group` varchar(50) NOT NULL DEFAULT '0',
   `permission_level` int(11) NOT NULL DEFAULT '0',
   `money` double NOT NULL DEFAULT '0',
@@ -219,7 +219,7 @@ CREATE TABLE `users` (
 -- ----------------------------
 DROP TABLE IF EXISTS `user_inventory`;
 CREATE TABLE `user_inventory` (
-  `user_id` varchar(255) CHARACTER SET utf8mb4 NOT NULL DEFAULT '',
+  `user_id` varchar(60) CHARACTER SET utf8mb4 NOT NULL DEFAULT '',
   `item_id` int(11) unsigned NOT NULL,
   `quantity` int(11) DEFAULT NULL,
   PRIMARY KEY (`user_id`,`item_id`),
@@ -237,7 +237,7 @@ CREATE TABLE `user_inventory` (
 DROP TABLE IF EXISTS `user_vehicle`;
 CREATE TABLE `user_vehicle` (
   `ID` int(10) NOT NULL AUTO_INCREMENT,
-  `identifier` varchar(255) NOT NULL,
+  `identifier` varchar(60) NOT NULL,
   `vehicle_name` varchar(60) DEFAULT NULL,
   `vehicle_model` varchar(60) DEFAULT NULL,
   `vehicle_price` int(60) DEFAULT NULL,
@@ -260,7 +260,7 @@ CREATE TABLE `user_vehicle` (
 DROP TABLE IF EXISTS `user_weapons`;
 CREATE TABLE `user_weapons` (
   `ID` int(10) NOT NULL AUTO_INCREMENT,
-  `identifier` varchar(255) NOT NULL,
+  `identifier` varchar(60) NOT NULL,
   `weapon_model` varchar(60) NOT NULL,
   `withdraw_cost` int(10) NOT NULL,
   PRIMARY KEY (`ID`)
